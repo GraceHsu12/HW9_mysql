@@ -108,8 +108,10 @@ LEFT JOIN address ON staff.address_id = address.address_id;
 -- in August of 2005. Use tables staff and payment.
 SELECT staff.first_name, staff.last_name, sum(payment.amount)
 FROM staff
-LEFT JOIN payment ON staff.staff_id = payment.staff_id
+JOIN payment ON staff.staff_id = payment.staff_id
+WHERE payment_date LIKE '2005-08%'
 GROUP BY staff.staff_id;
+
 
 -- 6c) List each film and the number of actors who are listed for that film.
 -- Use tables film_actor and film. Use inner join.
